@@ -43,6 +43,18 @@ function applyClassToTimeBlock() {
   }
 }
 
+function displayCurrentDay() {
+  const currentDayBlock = document.getElementById("currentDay");
+
+  const currentDay = getWeekdayName(dayjs().day());
+  const currentDate = dayjs().date();
+  const currentMonth = getMonthName(dayjs().month());
+
+  const currentDayOutput = `${currentDay}, ${currentMonth} ${currentDate}`;
+  currentDayBlock.textContent = currentDayOutput;
+}
+
 ready(function () {
   applyClassToTimeBlock();
+  displayCurrentDay();
 });
