@@ -1,19 +1,19 @@
 function getWeekdayName(day) {
-  if (day < 1 || day > 7) {
+  if (day < 0 || day > 6) {
     throw new Error("Invalid day input");
   }
 
   const weekdays = [
+    "Sunday",
     "Monday",
     "Tuesday",
     "Wednesday",
     "Thrusday",
     "Friday",
     "Saturday",
-    "Sunday",
   ];
 
-  return weekdays[day - 1];
+  return weekdays[day];
 }
 
 function getMonthName(month) {
