@@ -21,3 +21,28 @@ $(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
 });
+
+function ready(fn) {
+  if (document.readyState !== "loading") {
+    fn();
+    return;
+  }
+  document.addEventListener("DOMContentLoaded", fn);
+}
+
+function applyClassToTimeBlock() {
+  // const currentHour = dayjs().hour();
+  // console.log(currentHour);
+  const currentHour = 12;
+
+  for (let i = 9; i < 18; i++) {
+    const timeBlock = document.getElementById(`hour-${i}`);
+    if (i < currentHour) timeBlock.classList.add("past");
+    else if (i === currentHour) timeBlock.classList.add("present");
+    else if (i > currentHour) timeBlock.classList.add("future");
+  }
+}
+
+ready(function () {
+  applyClassToTimeBlock();
+});
